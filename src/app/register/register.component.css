@@ -53,7 +53,7 @@ body {
   }
   
   input[type="submit"]:hover {
-    background-color: #2a73ae; /* Rojo mexicano más oscuro */
+    background-color: #ae2a2a; /* Rojo mexicano más oscuro */
   }
   
   .message {
