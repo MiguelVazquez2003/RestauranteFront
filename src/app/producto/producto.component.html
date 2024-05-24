@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-12">
+    <h1 class="text-center my-4">Sección de Productos</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4" *ngFor="let producto of productos">
+    <mat-card class="product-card">
+      <mat-card-header>
+        <mat-card-title>{{ producto.nombre }}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image [src]="producto.imagen" alt="Imagen del producto" class="product-image">
+      <mat-card-content>
+        <p>{{ producto.descripcion }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
