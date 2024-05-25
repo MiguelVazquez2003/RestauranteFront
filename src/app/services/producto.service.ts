@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ProductoDto } from '../dtos/productoDto';
 
@@ -10,25 +10,25 @@ import { ProductoDto } from '../dtos/productoDto';
 export class ProductoService {
   private readonly url = `${environment.apiUrl}/Producto`;
 
+
   constructor(private http: HttpClient) { }
 
-  getProductos(headers: { Authorization: string; }): Observable<ProductoDto[]> {
-    return this.http.get<ProductoDto[]>(`${this.url}/productos`, { headers });
+  getProductos(): Observable<ProductoDto[]> {
+    return this.http.get<ProductoDto[]>(`${this.url}/productos`);
+  }
+  getProducto(id: number, headers?: HttpHeaders): Observable<ProductoDto> {
+    return this.http.get<ProductoDto>(`${this.url}/${id}`);
   }
 
-  getProducto(id: number): Observable<any> {
-    return this.http.get(`${this.url}/${id}`);
-  }
-
-  updateProducto(id: number, producto: any): Observable<any> {
-    return this.http.put(`${this.url}/${id}`, producto);
+  updateProducto(id: number, producto: ProductoDto, headers?: HttpHeaders): Observable<void> {
+    return this.http.put<void>(`${this.url}/${id}`, producto);
   }
 
   deleteProducto(id: number): Observable<any> {
     return this.http.delete(`${this.url}/${id}`);
   }
 
-  createProducto(producto: any): Observable<any> {
-    return this.http.post(this.url, producto);
+  createProducto(producto: ProductoDto): Observable<void> {
+    return this.http.post<void>(`${this.url}/`, producto);
   }
 }

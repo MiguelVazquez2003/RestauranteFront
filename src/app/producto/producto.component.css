@@ -3,8 +3,11 @@
   margin: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  border-radius: 15px; /* Agrega bordes redondeados a la tarjeta */
-  overflow: hidden; /* Asegura que la imagen y el contenido no se desborden */
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 30px;
+  padding-top: 20px;
+
 }
 
 .product-card:hover {
@@ -16,20 +19,41 @@
   width: 100%;
   height: auto;
   transition: transform 0.3s;
+  margin-bottom: 20px;
+  padding: 5px;
+
+
 }
 
-.product-image:hover {
-  transform: scale(1.1);
-}
+
 mat-card-header {
+  margin-top: 15px;
   background-color: #f8f9fa;
 }
 
 mat-card-title {
   color: #343a40;
   font-weight: bold;
+  margin-bottom: 15px;
+  padding: 10px 0;
+  font-size: x-large;
 }
 
 mat-card-content {
   color: #6c757d;
+  font-size: 18px;
+  font-family: 'Times New Roman', Times, serif;
+
+}
+button {
+  margin-top: 30px;
+  margin-left: 8px;
+}
+
+.eliminar{
+  margin-left:25px
+}
+
+.editar{
+  margin-left: 25px;
 }

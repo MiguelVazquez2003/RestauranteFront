@@ -1,18 +1,123 @@
 <div class="row">
   <div class="col-12">
-    <h1 class="text-center my-4">Sección de Productos</h1>
+    <h1 class="text-center my-3">Sección de Productos</h1>
   </div>
+
+  <div class="d-flex justify-content-center mb-3 my-3">
+    <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#agregarProductoModal">
+      Agregar producto
+    </button>
+  </div>
+
 </div>
 <div class="row">
-  <div class="col-md-4" *ngFor="let producto of productos">
+  <div class="col-md-3" *ngFor="let producto of productos">
     <mat-card class="product-card">
       <mat-card-header>
         <mat-card-title>{{ producto.nombre }}</mat-card-title>
       </mat-card-header>
-      <img mat-card-image [src]="producto.imagen" alt="Imagen del producto" class="product-image">
+      <img mat-card-image [src]="producto.imagen" alt="Imagen del producto" class="product-image img-fluid">
       <mat-card-content>
         <p>{{ producto.descripcion }}</p>
       </mat-card-content>
+      <mat-card-actions>
+        <button type="button" class="btn btn-primary editar" data-bs-toggle="modal" data-bs-target="#productoModal" (click)="abrirModal(producto.idProducto)">
+          Editar
+        </button>
+        <button type="button" class="btn btn-danger eliminar" (click)="eliminarProducto(producto.idProducto)">
+          Eliminar
+        </button>
+      </mat-card-actions>
     </mat-card>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="productoModal" tabindex="-1" aria-labelledby="productoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="productoModalLabel">Detalles del producto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="productoForm">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" formControlName="nombre">
+          </div>
+          <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <input type="text" class="form-control" id="descripcion" formControlName="descripcion">
+          </div>
+          <div class="mb-3">
+            <label for="precio" class="form-label">Precio</label>
+            <input type="number" class="form-control" id="precio" formControlName="precio">
+          </div>
+          <div class="mb-3">
+            <label for="puntoReorden" class="form-label">Punto de Reorden</label>
+            <input type="number" class="form-control" id="puntoReorden" formControlName="puntoReorden">
+          </div>
+          <div class="mb-3">
+            <label for="proveedor" class="form-label">Proveedor</label>
+            <ng-select [items]="proveedores" bindValue="idProveedor" bindLabel="nombre" formControlName="idProveedor" ></ng-select>
+          </div>
+          <div class="mb-3">
+            <label for="imagen" class="form-label">Imagen</label>
+            <input type="file" class="form-control" id="imagen" (change)="onFileChange($event)">
+            <img [src]="imagenUrl" alt="Imagen del producto" class="img-fluid imagen">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary " (click)="guardar()">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para agregar producto -->
+<div class="modal fade" id="agregarProductoModal" tabindex="-1" aria-labelledby="agregarProductoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="agregarProductoModalLabel">Agregar nuevo producto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="productoForm">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" formControlName="nombre">
+          </div>
+          <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <input type="text" class="form-control" id="descripcion" formControlName="descripcion">
+          </div>
+          <div class="mb-3">
+            <label for="precio" class="form-label">Precio</label>
+            <input type="number" class="form-control" id="precio" formControlName="precio">
+          </div>
+          <div class="mb-3">
+            <label for="puntoReorden" class="form-label">Punto de Reorden</label>
+            <input type="number" class="form-control" id="puntoReorden" formControlName="puntoReorden">
+          </div>
+          <div class="mb-3">
+            <label for="proveedor" class="form-label">Proveedor</label>
+            <ng-select [items]="proveedores" bindValue="idProveedor" bindLabel="nombre" formControlName="idProveedor"></ng-select>
+          </div>
+          <div class="mb-3">
+            <label for="imagen" class="form-label">Imagen</label>
+            <input type="file" class="form-control" id="imagen" (change)="onFileChange($event)">
+            <img [src]="imagenUrl" alt="Imagen del producto" class="img-fluid">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="agregar()">Agregar producto</button>
+      </div>
+    </div>
   </div>
 </div>

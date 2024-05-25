@@ -1,0 +1,66 @@
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editEmployeeModalLabel">Editar Empleado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cerrarModal()"></button>
+      </div>
+      <div class="modal-body">
+        <form #employeeForm="ngForm">
+          <div class="mb-3">
+            <label for="idEmpleado" class="form-label">ID Empleado</label>
+            <input [readonly]="true" type="number" class="form-control" id="idEmpleado" [(ngModel)]="empleado.idEmpleado" name="idEmpleado">
+          </div>
+
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" [(ngModel)]="empleado.nombre" name="nombre">
+          </div>
+          <div class="mb-3">
+            <label for="apellidoPaterno" class="form-label">Apellido Paterno</label>
+            <input type="text" class="form-control" id="apellidoPaterno" [(ngModel)]="empleado.apellidoPaterno" name="apellidoPaterno">
+          </div>
+          <div class="mb-3">
+            <label for="apellidoMaterno" class="form-label">Apellido Materno</label>
+            <input type="text" class="form-control" id="apellidoMaterno" [(ngModel)]="empleado.apellidoMaterno" name="apellidoMaterno">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" [(ngModel)]="empleado.email" name="email">
+          </div>
+          <div class="mb-3">
+            <label for="direccion" class="form-label">Dirección</label>
+            <input type="text" class="form-control" id="direccion" [(ngModel)]="empleado.direccion" name="direccion">
+          </div>
+          <div class="mb-3">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="text" class="form-control" id="telefono" [(ngModel)]="empleado.telefono" name="telefono">
+          </div>
+          <div class="mb-3">
+            <label for="sueldoPorHora" class="form-label">Sueldo por Hora</label>
+            <input type="number" class="form-control" id="sueldoPorHora" [(ngModel)]="empleado.sueldoPorHora" name="sueldoPorHora">
+          </div>
+          <div class="mb-3">
+            <label for="habilitado" class="form-label">Habilitado</label>
+            <input type="checkbox" class="form-check" id="habilitado" [(ngModel)]="empleado.habilitado" name="habilitado">
+          </div>
+          <div class="mb-4">
+            <label for="idRol" class="form-label">ID del Rol</label>
+            <ng-select [items]="roles"
+                       bindLabel="nombre"
+                       bindValue="idRol"
+                       [(ngModel)]="empleado.idRol"
+                       name="idRol"
+                       >
+            </ng-select>
+          </div>
+          <div class="mb-3" style="margin-top: 80px;">
+            <label for="contrasena" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="contrasena" [(ngModel)]="empleado.contrasena" name="contrasena">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrarModal()">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="esAgregar ? agregarEmpleado(employeeForm) : guardarCambios(employeeForm)">Guardar cambios</button>           </div>
+    </div>
+  </div>
