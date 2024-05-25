@@ -85,7 +85,6 @@ export class ProductoComponent  implements OnInit{
   guardar(): void {
 
     this.error = false;
-    console.log(this.productoForm.value);
     if (this.productoForm.valid) {
       const idProducto = this.productoForm.get('idProducto')?.value;
       this.productoService.updateProducto(idProducto, this.productoForm.value).pipe(

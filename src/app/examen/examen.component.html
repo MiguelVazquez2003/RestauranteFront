@@ -1,0 +1,116 @@
+<div class="row">
+  <div class="col-12">
+    <h1 class="text-center my-2 text-white">Sección de Exámenes</h1>
+  </div>
+
+  <div class="d-flex justify-content-center mb-2 my-2">
+    <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#agregarExamenModal">
+      Agregar examen
+    </button>
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-md-3" *ngFor="let examen of examenes">
+    <mat-card class="examen-card">
+      <mat-card-header>
+        <mat-card-title>{{ examen.nombre }}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image [src]="imagenUrl" alt="Imagen del producto" class="product-image img-fluid">
+
+      <mat-card-content>
+        <p>{{ examen.descripcion }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button type="button" class="btn btn-primary editar" data-bs-toggle="modal" data-bs-target="#examenModal" (click)="abrirModal(examen.idExamen)">
+          Editar
+        </button>
+        <button type="button" class="btn btn-danger eliminar" (click)="eliminarExamen(examen.idExamen)">
+          Eliminar
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<!-- Modal para detalles del examen -->
+<div class="modal fade" id="examenModal" tabindex="-1" aria-labelledby="examenModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="examenModalLabel">Detalles del Examen</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="examenForm">
+          <div class="mb-3">
+            <label for="idExamen" class="form-label">ID de Examen</label>
+            <input type="number" class="form-control" id="idExamen" formControlName="idExamen" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="idCapacitacion" class="form-label">ID de Capacitación</label>
+            <ng-select [items]="capacitaciones"
+                       bindLabel="nombre"
+                       bindValue="idCapacitacion"
+                       placeholder="Selecciona una capacitación"
+                       formControlName="idCapacitacion">
+            </ng-select>
+          </div>
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" formControlName="nombre">
+          </div>
+          <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <input type="text" class="form-control" id="descripcion" formControlName="descripcion">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary " (click)="guardar()">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para agregar examen -->
+<div class="modal fade" id="agregarExamenModal" tabindex="-1" aria-labelledby="agregarExamenModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="agregarExamenModalLabel">Agregar nuevo examen</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="examenForm">
+          <div class="mb-3">
+            <label for="idExamen" class="form-label">ID de Examen</label>
+            <input type="number" class="form-control" id="idExamen" formControlName="idExamen" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="idCapacitacion" class="form-label">ID de Capacitación</label>
+            <ng-select [items]="capacitaciones"
+                       bindLabel="nombre"
+                       bindValue="idCapacitacion"
+                       placeholder="Selecciona una capacitación"
+                       formControlName="idCapacitacion">
+            </ng-select>
+          </div>
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" formControlName="nombre">
+          </div>
+          <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <input type="text" class="form-control" id="descripcion" formControlName="descripcion">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="agregar()">Agregar examen</button>
+      </div>
+    </div>
+  </div>
+</div>

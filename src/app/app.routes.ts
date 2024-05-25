@@ -8,6 +8,7 @@ import { TurnoComponent } from './turno/turno.component';
 import { ProveedorComponent } from './proveedor/proveedor.component';
 import { CapacitacionComponent } from './capacitacion/capacitacion.component';
 import { CapacitacionEmpleadoComponent } from './capacitacion-empleado/capacitacion-empleado.component';
+import { ExamenComponent } from './examen/examen.component';
 
 export const routes: Routes = [
   {path: '', pathMatch: 'full', component: LoginComponent},
@@ -18,4 +19,5 @@ export const routes: Routes = [
   {path:'proveedores', component: ProveedorComponent, canActivate: [AuthGuardService]},
   {path:'capacitaciones', component: CapacitacionComponent, canActivate: [AuthGuardService]},
   {path:'capacitacion-empleado', component: CapacitacionEmpleadoComponent, canActivate: [AuthGuardService]},
+  {path:'examen', component: ExamenComponent, canActivate: [AuthGuardService]}
 ];
