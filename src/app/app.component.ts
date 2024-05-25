@@ -6,7 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Route, Router, RouterModule, RouterOutlet } from '@angular/router';
 import { AuthGuardService } from './services/auth-guard.service';
 import { CommonModule } from '@angular/common';
 
@@ -29,6 +29,12 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   title = 'RestauranteFront';
 
-  constructor(public tokenService: AuthGuardService) { }
+  constructor(public tokenService: AuthGuardService, private router:Router ) { }
+
+
+  cerrarSesion() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/']);
+  }
 
 }
