@@ -6,6 +6,8 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { EmpleadoComponent } from './empleado/empleado.component';
 import { TurnoComponent } from './turno/turno.component';
 import { ProveedorComponent } from './proveedor/proveedor.component';
+import { CapacitacionComponent } from './capacitacion/capacitacion.component';
+import { CapacitacionEmpleadoComponent } from './capacitacion-empleado/capacitacion-empleado.component';
 
 export const routes: Routes = [
   {path: '', pathMatch: 'full', component: LoginComponent},
@@ -13,5 +15,7 @@ export const routes: Routes = [
   { path: 'productos' , component: ProductoComponent, canActivate: [AuthGuardService] },
   {path:'empleados', component: EmpleadoComponent, canActivate: [AuthGuardService]},
   {path:'turnos', component: TurnoComponent, canActivate: [AuthGuardService]},
-  {path:'proveedores', component: ProveedorComponent, canActivate: [AuthGuardService]}
+  {path:'proveedores', component: ProveedorComponent, canActivate: [AuthGuardService]},
+  {path:'capacitaciones', component: CapacitacionComponent, canActivate: [AuthGuardService]},
+  {path:'capacitacion-empleado', component: CapacitacionEmpleadoComponent, canActivate: [AuthGuardService]},
 ];

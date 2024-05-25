@@ -1,0 +1,48 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">{{ esAgregar ? 'Agregar Capacitación Empleado' : 'Editar Capacitación Empleado' }}</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cerrarModal()"></button>
+  </div>
+  <div class="modal-body">
+    <form #capacitacionEmpleadoForm="ngForm">
+      <div class="mb-3">
+        <label for="idCapacitacionEmpleado" class="form-label">ID de la Capacitación Empleado</label>
+        <input type="number" class="form-control" id="idCapacitacionEmpleado" [(ngModel)]="capacitacionEmpleado.idCapacitacionEmpleado" name="idCapacitacionEmpleado" readonly *ngIf="!esAgregar">
+      </div>
+      <div class="mb-3">
+        <label for="IdCapacitacion" class="form-label">Capacitación</label>
+        <ng-select [items]="capacitacionesList"
+                   bindLabel="nombre"
+                   bindValue="idCapacitacion"
+                   [(ngModel)]="capacitacionEmpleado.idCapacitacion"
+                   name="idCapacitacion">
+        </ng-select>
+      </div>
+      <div class="mb-3">
+        <label for="IdEmpleado" class="form-label">Empleado</label>
+        <ng-select [items]="empleadosList"
+                   bindLabel="nombre"
+                   bindValue="idEmpleado"
+                   [(ngModel)]="capacitacionEmpleado.idEmpleado"
+                   name="idEmpleado">
+        </ng-select>
+      </div>
+      <div class="mb-3">
+        <label for="fechaAsignacion" class="form-label">Fecha de Asignación</label>
+        <input type="datetime-local" class="form-control" id="FechaAsignacion" [(ngModel)]="capacitacionEmpleado.fechaAsignacion" name="fechaAsignacion">
+      </div>
+      <div class="mb-3">
+        <label for="fechaLimite" class="form-label">Fecha Límite</label>
+        <input type="datetime-local" class="form-control" id="FechaLimite" [(ngModel)]="capacitacionEmpleado.fechaLimite" name="fechaLimite">
+      </div>
+      <div class="mb-3">
+        <label for="fechaCompletado" class="form-label">Fecha de Completado</label>
+        <input type="datetime-local" class="form-control" id="FechaCompletado" [(ngModel)]="capacitacionEmpleado.fechaCompletado" name="fechaCompletado" *ngIf="!esAgregar">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrarModal()">Cerrar</button>
+        <button type="submit" class="btn btn-primary" (click)="esAgregar ? agregarCapacitacionEmpleado(capacitacionEmpleadoForm) : guardarCambios(capacitacionEmpleadoForm)">Guardar cambios</button>
+      </div>
+    </form>
+  </div>
+</div>

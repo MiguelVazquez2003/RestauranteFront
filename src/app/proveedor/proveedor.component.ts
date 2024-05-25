@@ -33,7 +33,8 @@ export class ProveedorComponent {
   getProveedores(): void {
     this.proveedorService.getProveedores().subscribe(
       proveedores => this.proveedorList = proveedores,
-      error => console.error(error)
+      error => this.toastService.error("Ocurrió un error.")
+
     );
   }
 

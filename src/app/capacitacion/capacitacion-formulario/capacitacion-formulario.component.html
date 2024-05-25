@@ -1,0 +1,30 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">{{ esAgregar ? 'Agregar Capacitación' : 'Editar Capacitación' }}</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cerrarModal()"></button>
+  </div>
+  <div class="modal-body">
+    <form #capacitacionForm="ngForm">
+      <div class="mb-3">
+        <label for="idCapacitacion" class="form-label">ID de la Capacitación</label>
+        <input type="number" class="form-control" id="idCapacitacion" [(ngModel)]="capacitacion.idCapacitacion" name="idCapacitacion" readonly *ngIf="!esAgregar">
+      </div>
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" [(ngModel)]="capacitacion.nombre" name="nombre">
+      </div>
+      <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción</label>
+        <input type="text" class="form-control" id="descripcion" [(ngModel)]="capacitacion.descripcion" name="descripcion">
+      </div>
+      <div class="mb-3">
+        <label for="videoUrl" class="form-label">URL del Video</label>
+        <input type="text" class="form-control" id="videoUrl" [(ngModel)]="capacitacion.videoUrl" name="videoUrl">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrarModal()">Cerrar</button>
+    <button type="button" class="btn btn-primary" (click)="esAgregar ? agregarCapacitacion(capacitacionForm) : guardarCambios(capacitacionForm)">Guardar cambios</button>
+  </div>
+</div>

@@ -169,12 +169,15 @@ export class ProductoComponent  implements OnInit{
     }
   }
   cargarProductos() {
-    this.productoService.getProductos().subscribe(productos => {
-      this.productos = productos.map(producto => ({
-        ...producto,
-        imagen: `data:image/jpeg;base64,${producto.imagen}`
-      }));
-    });
+    this.productoService.getProductos().subscribe(
+      productos => {
+        this.productos = productos.map(producto => ({
+          ...producto,
+          imagen: `data:image/jpeg;base64,${producto.imagen}`
+        }));
+      },
+      error => this.toastr.error("Ocurrió un error.")
+    );
   }
 
   eliminarProducto(id: number): void {

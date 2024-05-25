@@ -34,7 +34,8 @@ export class EmpleadoComponent {
   getEmpleados(): void {
     this.empleadoService.getEmpleados().subscribe(
       empleados => this.employeeList = empleados,
-      error => console.error(error)
+      error => this.toastService.error("Ocurrió un error.")
+
     );
   }
   openModal(idEmpleado: number) {
