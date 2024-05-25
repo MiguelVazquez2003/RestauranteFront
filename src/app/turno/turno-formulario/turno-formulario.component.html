@@ -1,0 +1,39 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">{{ esAgregar ? 'Agregar Turno' : 'Editar Turno' }}</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cerrarModal()"></button>
+  </div>
+  <div class="modal-body">
+    <form #turnoForm="ngForm">
+      <div class="mb-3">
+        <label for="idTurno" class="form-label">ID del Turno</label>
+        <input type="number" class="form-control" id="idTurno" [(ngModel)]="turno.idTurno" name="idTurno" readonly *ngIf="!esAgregar">
+      </div>
+      <div class="mb-3">
+        <label for="idEmpleado" class="form-label">Empleado</label>
+        <ng-select [items]="empleadosList"
+                   bindLabel="nombre"
+                   bindValue="idEmpleado"
+                   [(ngModel)]="turno.idEmpleado"
+                   name="idEmpleado">
+        </ng-select>
+      </div>
+      <div class="mb-3">
+        <label for="fechaHoraInicio" class="form-label">Fecha y Hora de Inicio</label>
+        <input type="datetime-local" class="form-control" id="fechaHoraInicio" [(ngModel)]="turno.fechaHoraInicio" name="fechaHoraInicio">
+      </div>
+      <div class="mb-3">
+        <label for="fechaHoraFin" class="form-label">Fecha y Hora de Fin</label>
+        <input type="datetime-local" class="form-control" id="fechaHoraFin" [(ngModel)]="turno.fechaHoraFin" name="fechaHoraFin">
+      </div>
+      <div class="mb-3">
+        <label for="activo" class="form-label">Activo</label>
+        <input type="checkbox" class="form-check" id="activo" [(ngModel)]="turno.activo" name="activo">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrarModal()">Cerrar</button>
+    <button type="button" class="btn btn-primary" (click)="esAgregar ? agregarTurno(turnoForm) : guardarCambios(turnoForm)">Guardar cambios</button>
+  </div>
+</div>

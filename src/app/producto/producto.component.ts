@@ -47,7 +47,7 @@ export class ProductoComponent  implements OnInit{
   }
 
   consultarProveedores(): void {
-    this.proveedorService.getProveedores().subscribe(proveedores => {
+    this.proveedorService.getProveedoresSelector().subscribe(proveedores => {
       this.proveedores = proveedores;
     });
   }

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { EmpleadoDto } from '../dtos/empleadoDto';
+import { EmpleadoSelectorDto } from '../dtos/empleadoselectorDto';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,10 @@ export class EmpleadoService {
 
   createEmpleado(empleado: EmpleadoDto): Observable<void> {
     return this.http.post<void>(`${this.url}/`, empleado);
+  }
+
+  getEmpleadoSelector(): Observable<EmpleadoSelectorDto[]> {
+    return this.http.get<EmpleadoDto[]>(`${this.url}/empleados-selector`);
   }
 
 
