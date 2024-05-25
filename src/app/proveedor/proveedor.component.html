@@ -33,10 +33,10 @@
             <td>{{ proveedor.email }}</td>
             <td>{{ proveedor.telefono }}</td>
             <td>{{ proveedor.direccion }}</td>
-            <td>
-              <button type="button" class="btn btn-warning" (click)="openModal(proveedor.idProveedor)">Editar</button>
-              <button type="button" class="btn btn-danger" (click)="eliminarProveedor(proveedor.idProveedor)">Eliminar</button>
-            </td>
+              <td>
+                <a (click)="openModal(proveedor.idProveedor)" class="btn btn-info btn-sm" ><i class="fa fa-edit"></i></a>
+                <a (click)="eliminarProveedor(proveedor.idProveedor)" class="btn btn-danger btn-sm" ><i class="fa fa-trash"></i></a>
+              </td>
           </tr>
         </tbody>
       </table>
