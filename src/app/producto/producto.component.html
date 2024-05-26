@@ -65,7 +65,7 @@
           <div class="mb-3">
             <label for="imagen" class="form-label">Imagen</label>
             <input type="file" class="form-control" id="imagen" (change)="onFileChange($event)">
-            <img [src]="imagenUrl" alt="Imagen del producto" class="img-fluid imagen">
+            <img [src]="imagenUrl" alt="Imagen del producto" class="img-fluid" style="max-width: 250px; height: auto;">
           </div>
         </form>
       </div>
@@ -110,7 +110,7 @@
           <div class="mb-3">
             <label for="imagen" class="form-label">Imagen</label>
             <input type="file" class="form-control" id="imagen" (change)="onFileChange($event)">
-            <img [src]="imagenUrl" alt="Imagen del producto" class="img-fluid">
+            <img [src]="imagenUrl" alt="Imagen del producto" class="img-fluid" style="max-width: 200px; height: auto;">
           </div>
         </form>
       </div>

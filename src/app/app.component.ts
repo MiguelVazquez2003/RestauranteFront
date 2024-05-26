@@ -21,7 +21,7 @@ import { CommonModule } from '@angular/common';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
