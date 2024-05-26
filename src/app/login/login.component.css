@@ -6,17 +6,17 @@ body {
   .container {
     width: 400px;
     margin: 50px auto;
-    background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px); /* Apply blur effect */
-    background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
+    background-color: rgba(173, 216, 230, 0.5); /* 50% transparent light blue */
+
   }
 
   .container h2 {
     text-align: center;
-    color: #d63b3b; /* Rojo mexicano */
+    color: #f30000; /* Rojo mexicano */
   }
 
   .container img {
@@ -27,34 +27,33 @@ body {
   }
 
   label {
-    color: #d4d4d4; /* Rojo mexicano */
+    color: #d63b3b; /* Rojo mexicano */
   }
 
   input[type="text"],
   input[type="email"],
   input[type="password"] {
     width: calc(100% - 20px);
-    padding: 15px;
+    padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #e4dbdb; /* Rojo mexicano */
+    border: 1px solid #d63b3b; /* Rojo mexicano */
     border-radius: 5px;
   }
 
   input[type="submit"] {
     width: calc(100% - 20px);
-    padding: 15px;
+    padding: 10px;
     margin-top: 10px;
-    background-color: #8b3bd6; /* Rojo mexicano */
+    background-color: #d63b3b; /* Rojo mexicano */
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-bottom: 10px;
   }
 
   input[type="submit"]:hover {
-    background-color: #e2e2e2; /* Rojo mexicano más oscuro */
+    background-color: #ae2a2a; /* Rojo mexicano más oscuro */
   }
 
   .message {
@@ -62,7 +61,7 @@ body {
   }
 
   .message a {
-    color: #e40000; /* Rojo mexicano */
+    color: #d63b3b; /* Rojo mexicano */
     text-decoration: none;
   }
 

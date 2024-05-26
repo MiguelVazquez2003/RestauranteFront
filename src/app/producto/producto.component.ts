@@ -12,6 +12,7 @@ import { ProveedorDto } from '../dtos/proveedorDto';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ToastrService } from 'ngx-toastr';
 import { catchError, of } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -33,7 +34,7 @@ export class ProductoComponent  implements OnInit{
 
 
   constructor(private productoService: ProductoService, private sanitizer: DomSanitizer,
-    private proveedorService : ProveedorService, private toastr: ToastrService
+    private proveedorService : ProveedorService, private toastr: ToastrService, private router: Router
   ) {
   }
 
@@ -60,7 +61,8 @@ export class ProductoComponent  implements OnInit{
       precio: new FormControl('', [Validators.required, Validators.min(0)]),
       puntoReorden: new FormControl('', [Validators.required, Validators.min(0)]),
       imagen: new FormControl('', Validators.required),
-      idProveedor: new FormControl('', [Validators.required, Validators.min(0)])
+      idProveedor: new FormControl('', [Validators.required, Validators.min(0)]),
+      cantidad : new FormControl('', [Validators.required, Validators.min(0)])
     });
 
   }
@@ -75,7 +77,8 @@ export class ProductoComponent  implements OnInit{
         precio: producto.precio,
         puntoReorden: producto.puntoReorden,
         imagen: producto.imagen,
-        idProveedor: producto.idProveedor
+        idProveedor: producto.idProveedor,
+        cantidad: producto.cantidad
       });
 
 
@@ -189,5 +192,9 @@ export class ProductoComponent  implements OnInit{
         console.error(error);
       }
     });
+  }
+
+  inventario(){
+    this.router.navigate(['/inventario']);
   }
 }

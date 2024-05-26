@@ -10,6 +10,7 @@ export class ProductoDto{
   public imagen :string;
   public imagenUrl: SafeResourceUrl;
   public idProveedor: number;
+  public cantidad: number;
 
   constructor(){
     this.idProducto = 0;
@@ -21,5 +22,6 @@ export class ProductoDto{
     this.imagen = '';
     this.imagenUrl = '';
     this.idProveedor = 0;
+    this.cantidad = 0;
   }
 }
