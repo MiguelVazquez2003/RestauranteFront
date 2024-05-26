@@ -29,11 +29,11 @@
 
 mat-card-header {
   margin-top: 15px;
-  background-color: #343a40; /* Un color de fondo más oscuro para el encabezado */
+  background-color: #343a40;
 }
 
 mat-card-title {
-  color: #f8f9fa; /* Un color de texto claro para contrastar con el fondo oscuro */
+  color: #f8f9fa;
   font-weight: bold;
   margin-bottom: 15px;
   padding: 10px 0;
@@ -49,7 +49,7 @@ mat-card-content {
 button {
   margin-top: 30px;
   margin-left: 8px;
-  color: #f8f9fa; /* Un color de texto claro para los botones */
+  color: #f8f9fa;
 
 
 }

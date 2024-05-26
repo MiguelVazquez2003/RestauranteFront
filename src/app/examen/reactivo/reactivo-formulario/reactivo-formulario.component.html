@@ -1,0 +1,31 @@
+<form #reactivoForm="ngForm" (ngSubmit)="esAgregar ? agregarReactivo(reactivoForm) : guardarCambios(reactivoForm)">
+  <div class="modal-body">
+    <div class="form-group">
+      <div class="form-group">
+        <label for="idReactivo">ID Reactivo</label>
+        <input type="number" class="form-control" id="idReactivo" name="idReactivo" [(ngModel)]="reactivo.idReactivo" readonly>
+      </div>
+      <label for="idExamen">ID Examen</label>
+      <ng-select [items]="examenes"
+                 bindLabel="nombre"
+                 bindValue="idExamen"
+                 placeholder="Selecciona un examen"
+                 [(ngModel)]="reactivo.idExamen"
+                 name="idExamen"
+                 required>
+      </ng-select>
+    </div>
+    <div class="form-group">
+      <label for="pregunta">Pregunta</label>
+      <input type="text" class="form-control" id="pregunta" name="pregunta" [(ngModel)]="reactivo.pregunta" required>
+    </div>
+    <div class="form-group">
+      <label for="respuestaCorrecta">Respuesta Correcta</label>
+      <input type="text" class="form-control" id="respuestaCorrecta" name="respuestaCorrecta" [(ngModel)]="reactivo.respuestaCorrecta" required>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+  </div>
+</form>

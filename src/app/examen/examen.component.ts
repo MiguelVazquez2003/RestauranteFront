@@ -12,6 +12,7 @@ import { catchError, of } from 'rxjs';
 import * as bootstrap from 'bootstrap';
 import { CapacitacionService } from '../services/capacitacion.service';
 import { CapacitacionDto } from '../dtos/capacitacionDto';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -32,7 +33,8 @@ export class ExamenComponent {
   imagenUrl:SafeResourceUrl = '';
 
   constructor(private examenService: ExamenService, private toastr: ToastrService,
-    private capacitacionService:CapacitacionService, private sanitizer: DomSanitizer) {
+    private capacitacionService:CapacitacionService, private sanitizer: DomSanitizer,
+  private router: Router) {
   }
 
   ngOnInit(): void {
@@ -140,6 +142,8 @@ export class ExamenComponent {
       });
     }
   }
-
+  agregarReactivo(): void {
+    this.router.navigate(['/reactivos']);
+  }
 
 }

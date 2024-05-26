@@ -73,7 +73,6 @@ export class ProveedorComponent {
     if (idProveedor) {
       this.proveedorService.getProveedor(idProveedor).subscribe(
         proveedor => {
-          console.log(proveedor);
           const initialState = { proveedor };
           this.modalRef = this.modalService.show(ProveedorFormularioComponent, { initialState });
 

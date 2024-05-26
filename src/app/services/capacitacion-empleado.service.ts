@@ -16,6 +16,10 @@ export class CapacitacionEmpleadoService {
     return this.http.get<CapacitacionEmpleadoDto[]>(`${this.url}/capacitaciones-empleados`);
   }
 
+  getMisCapacitaciones(): Observable<CapacitacionEmpleadoDto[]> {
+    return this.http.get<CapacitacionEmpleadoDto[]>(`${this.url}/mis-capacitaciones`);
+  }
+
   getCapacitacionEmpleado(id: number): Observable<CapacitacionEmpleadoDto> {
     return this.http.get<CapacitacionEmpleadoDto>(`${this.url}/${id}`);
   }

@@ -8,6 +8,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-capacitacion-empleado',
@@ -24,7 +25,8 @@ export class CapacitacionEmpleadoComponent {
 
   constructor(private capacitacionEmpleadoService: CapacitacionEmpleadoService,
     private modalService: BsModalService,
-    private toastService: ToastrService
+    private toastService: ToastrService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -37,6 +39,10 @@ export class CapacitacionEmpleadoComponent {
       error => this.toastService.error("Ocurrió un error.")
 
     );
+  }
+
+  verCapacitaciones(): void{
+    this.router.navigate(['/mis-capacitaciones']);
   }
 
   eliminarCapacitacionEmpleado(idCapacitacionEmpleado: number): void {

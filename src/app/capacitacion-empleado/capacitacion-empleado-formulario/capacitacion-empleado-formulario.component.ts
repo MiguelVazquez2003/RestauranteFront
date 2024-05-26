@@ -40,7 +40,6 @@ export class CapacitacionEmpleadoFormularioComponent {
 
   guardarCambios(form: NgForm) {
     const capacitacionEmpleado = form.value;
-    console.log(capacitacionEmpleado);
     this.capacitacionEmpleadoService.updateCapacitacionEmpleado(capacitacionEmpleado.idCapacitacionEmpleado, capacitacionEmpleado).subscribe(() => {
       this.toastr.success('Capacitación de empleado actualizada correctamente');
       if(this.modalRef){
@@ -75,7 +74,6 @@ export class CapacitacionEmpleadoFormularioComponent {
 
   agregarCapacitacionEmpleado(form: NgForm) {
     const capacitacionEmpleado = form.value;
-    console.log(capacitacionEmpleado);
 
     this.capacitacionEmpleadoService.createCapacitacionEmpleado(capacitacionEmpleado).subscribe(() => {
       this.toastr.success('Capacitación de empleado creada correctamente');
