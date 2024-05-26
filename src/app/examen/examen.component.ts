@@ -68,7 +68,6 @@ export class ExamenComponent {
 
   guardar(): void {
     if (this.examenForm.valid) {
-      console.log(this.examenForm.value);
       this.examenService.updateExamen(this.examenForm.value.idExamen, this.examenForm.value).subscribe(() => {
         this.toastr.success('Examen modificado correctamente');
         this.cargarExamenes();

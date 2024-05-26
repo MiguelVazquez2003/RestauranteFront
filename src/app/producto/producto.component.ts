@@ -135,7 +135,6 @@ export class ProductoComponent  implements OnInit{
   agregar(): void {
 
     this.error = false;
-    console.log(this.productoForm.value);
     if (this.productoForm.valid) {
       const producto = { ...this.productoForm.value };
       this.productoService.createProducto(producto).pipe(

@@ -33,9 +33,7 @@ export class TurnoFormularioComponent {
   }
 
   guardarCambios(form: NgForm) {
-    console.log(form.value);
     const turno = form.value;
-    console.log(turno);
     this.turnoService.updateTurno(turno.idTurno, turno).subscribe(() => {
       this.toastr.success('Turno actualizado correctamente');
       if(this.modalRef){

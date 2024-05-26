@@ -77,11 +77,9 @@ export class CapacitacionEmpleadoComponent {
   }
 
   openModal(idCapacitacionEmpleado: number) {
-    console.log(idCapacitacionEmpleado);
     if (idCapacitacionEmpleado) {
       this.capacitacionEmpleadoService.getCapacitacionEmpleado(idCapacitacionEmpleado).subscribe(
         (capacitacionEmpleado: CapacitacionEmpleadoDto) => {
-          console.log(capacitacionEmpleado);
           const initialState = { capacitacionEmpleado };
           this.modalRef = this.modalService.show(CapacitacionEmpleadoFormularioComponent, { initialState });
 

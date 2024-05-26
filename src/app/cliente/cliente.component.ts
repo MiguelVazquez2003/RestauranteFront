@@ -11,9 +11,6 @@ import { ClienteService } from '../services/cliente.service';
 export class ClienteComponent {
 
   constructor(private clienteService: ClienteService) {
-    this.clienteService.getClientes().subscribe(
-      data => console.log(data),
-      error => console.error(error)
-    );
+
 }
 }
