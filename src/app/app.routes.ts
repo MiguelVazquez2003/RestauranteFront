@@ -11,6 +11,7 @@ import { CapacitacionEmpleadoComponent } from './capacitacion-empleado/capacitac
 import { ExamenComponent } from './examen/examen.component';
 import { ReactivoComponent } from './examen/reactivo/reactivo.component';
 import { MiCapacitacionEmpleadoComponent } from './capacitacion-empleado/mi-capacitacion-empleado/mi-capacitacion-empleado.component';
+import { ProgramarExamenComponent } from './examen/programar-examen/programar-examen.component';
 
 export const routes: Routes = [
   {path: '', pathMatch: 'full', component: LoginComponent},
@@ -23,5 +24,6 @@ export const routes: Routes = [
   {path:'capacitacion-empleado', component: CapacitacionEmpleadoComponent, canActivate: [AuthGuardService]},
   {path:'examen', component: ExamenComponent, canActivate: [AuthGuardService]},
   {path:'reactivos', component: ReactivoComponent, canActivate: [AuthGuardService]},
-  {path:'mis-capacitaciones', component: MiCapacitacionEmpleadoComponent, canActivate: [AuthGuardService]}
+  {path:'mis-capacitaciones', component: MiCapacitacionEmpleadoComponent, canActivate: [AuthGuardService]},
+  {path:'programar-examen', component: ProgramarExamenComponent, canActivate: [AuthGuardService]}
 ];

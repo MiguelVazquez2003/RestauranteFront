@@ -146,4 +146,8 @@ export class ExamenComponent {
     this.router.navigate(['/reactivos']);
   }
 
+  programarExamen(): void {
+    this.router.navigate(['/programar-examen']);
+  }
+
 }
